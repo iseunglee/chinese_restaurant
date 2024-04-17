@@ -15,6 +15,7 @@ def seller_index(request):
     }
     return render(request, 'seller/seller_index.html', context)
 
+@login_required # 로그인을 안한 상태에서 /seller/add_food 페이지로 넘어가는 에러를 해결하기 위해 해당 데코레이터 설정
 def add_food(request):
     # get
     if request.method == 'GET':
@@ -40,7 +41,8 @@ def add_food(request):
                             description=food_description,
                             image_url=url)
         return redirect('seller:seller_index')
-    
+
+@login_required    
 def food_detail(request, pk):
     food = Food.objects.get(pk=pk)
     context = {
@@ -48,6 +50,7 @@ def food_detail(request, pk):
     }
     return render(request, 'seller/food_detail.html', context)
 
+@login_required
 def food_delete(request, pk):
     food = Food.objects.get(pk=pk)
     food.delete()

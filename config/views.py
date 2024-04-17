@@ -2,9 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView, TemplateView
 from django.urls import reverse_lazy
+from seller.models import Food
 
 def index(request):
-    return render(request, 'home.html')
+    all_food = Food.objects.all()
+    context = {
+        'object_list' : all_food
+    }
+    return render(request, 'home.html', context)
 
 class UserCreateView(CreateView):
     template_name = 'registration/register.html'
