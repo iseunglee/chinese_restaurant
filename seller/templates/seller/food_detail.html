@@ -1,0 +1,13 @@
+<h1>food_detail.html</h1>
+
+<ul>
+    <img src="{{ object.image_url }}" alt="{{ object.name }}" class="product-image mb-3">
+    <li>{{ object.name }}</li>
+    <li>{{ object.price }}</li>
+    <li>{{ object.description }}</li>
+</ul>
+
+<form action="{% url 'seller:food_delete' pk=object.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">삭제하기</button>
+</form>
