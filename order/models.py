@@ -10,3 +10,5 @@ class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) # 누가 담았는지 구별하기 위해 user 속성
     food = models.ForeignKey(Food, on_delete=models.DO_NOTHING)
     amount = models.IntegerField(default=0)
+
+    

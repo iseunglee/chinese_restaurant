@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{user}}님의 장바구니</h1>
+<ul>
+    {% for cart in object %}
+    <li>{{ cart.food.name }}{{ cart.amount }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

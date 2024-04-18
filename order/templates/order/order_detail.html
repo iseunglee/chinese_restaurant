@@ -2,7 +2,7 @@
 {% block content %}
 <!--버튼 추가-->
 <div>
-    <a href="#" class="btn btn-primary">
+    <a href="{% url 'order:check_cart' pk=user.id %}" class="btn btn-primary">
     장바구니 <span class="badge bg-secondary"><span id="totalQuantity"></span></span>
 </a>
 </div>

@@ -45,3 +45,10 @@ def modify_cart(request):
     }
 
     return JsonResponse(context)
+
+def check_cart(request, pk):
+    food = Cart.objects.filter(user__id=pk)
+    context = {
+        'object' : food
+    }
+    return render(request, 'order/check_cart.html', context)
