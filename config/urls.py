@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('seller/', include('seller.urls')),
     path('order/', include('order.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')), # 장고 자체적으로 만든 로그인 관련 urls
     path('accounts/register/', views.UserCreateView.as_view(), name='register'),
     path('accounts/register/done/', views.UserCreateDoneTV.as_view(), name='register_done'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # 저장된 사진 가져오기 위한
